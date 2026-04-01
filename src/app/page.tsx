@@ -1,50 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import { SearchResult } from "@/types/search";
-import SearchBar from "@/components/SearchBar";
-import PopularSearches from "@/components/PopularSearches";
-import IntentBanner from "@/components/IntentBanner";
+import { useRouter } from "next/navigation";
+import { ASTROLOGERS, INTENT_CHIPS } from "@/data/mockData";
 import AstroCard from "@/components/AstroCard";
-import RemedyCard from "@/components/RemedyCard";
-import LoadingSkeleton from "@/components/LoadingSkeleton";
+import BottomNav from "@/components/BottomNav";
 
 export default function Home() {
-  const [query, setQuery] = useState("");
-  const [activeTab, setActiveTab] = useState<"Astrologer" | "Remedies">(
-    "Astrologer"
-  );
-  const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState<SearchResult | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const router = useRouter();
+  const [activeChip, setActiveChip] = useState<string | null>(null);
 
-  const handleSearch = async (searchQuery?: string) => {
-    const q = searchQuery || query;
-    if (!q.trim()) return;
-    setQuery(q);
-    setLoading(true);
-    setError(null);
-    setResult(null);
-
-    try {
-      const res = await fetch("/api/search", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ query: q.trim() }),
-      });
-      const data = await res.json();
-      if (data.error) {
-        setError(data.error);
-      } else {
-        setResult(data);
-        setActiveTab("Astrologer");
-      }
-    } catch {
-      setError("Network error. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
+  const filtered = activeChip
+    ? ASTROLOGERS.filter((a) => a.speciality === activeChip)
+    : ASTROLOGERS;
 
   return (
     <div
@@ -72,6 +40,18 @@ export default function Home() {
           justifyContent: "space-between",
         }}
       >
+        <button
+          style={{
+            background: "none",
+            border: "none",
+            fontSize: 22,
+            cursor: "pointer",
+            padding: 0,
+            color: "#333",
+          }}
+        >
+          ☰
+        </button>
         <div
           style={{
             fontWeight: 800,
@@ -84,21 +64,24 @@ export default function Home() {
         >
           🔮 AsthaAI
         </div>
-        <div
-          style={{
-            background: "#E8F5E9",
-            color: "#2E7D32",
-            fontSize: 12,
-            fontWeight: 700,
-            padding: "4px 12px",
-            borderRadius: 20,
-          }}
-        >
-          ₹0
+        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <div
+            style={{
+              background: "#E8F5E9",
+              color: "#2E7D32",
+              fontSize: 12,
+              fontWeight: 700,
+              padding: "4px 12px",
+              borderRadius: 20,
+            }}
+          >
+            ₹0
+          </div>
+          <span style={{ fontSize: 18, cursor: "pointer" }}>🔔</span>
         </div>
       </div>
 
-      {/* Search bar area */}
+      {/* Search bar - navigates to /search */}
       <div
         style={{
           padding: "12px 16px",
@@ -106,192 +89,264 @@ export default function Home() {
           borderBottom: "1px solid #ebebeb",
         }}
       >
-        <SearchBar
-          value={query}
-          onChange={setQuery}
-          onSubmit={() => handleSearch()}
-          onClear={() => {
-            setQuery("");
-            setResult(null);
-            setError(null);
+        <div
+          onClick={() => router.push("/search")}
+          style={{
+            background: "#F5F5F5",
+            borderRadius: 10,
+            padding: "12px 14px 12px 38px",
+            fontSize: 14,
+            color: "#aaa",
+            cursor: "pointer",
+            position: "relative",
           }}
-        />
+        >
+          <span
+            style={{
+              position: "absolute",
+              left: 12,
+              top: "50%",
+              transform: "translateY(-50%)",
+              fontSize: 16,
+            }}
+          >
+            🔍
+          </span>
+          Apni problem likhein... heartbreak, naukri, tension
+        </div>
       </div>
 
-      {/* Body */}
-      <div style={{ padding: "14px 14px 80px" }}>
-        {/* Error */}
-        {error && (
+      <div style={{ padding: "0 0 80px" }}>
+        {/* Live astrologers row */}
+        <div
+          style={{
+            padding: "14px 14px 0",
+            background: "#fff",
+            borderBottom: "1px solid #ebebeb",
+          }}
+        >
           <div
             style={{
-              background: "#FFF3E0",
-              border: "1px solid #FFCC80",
-              borderRadius: 10,
-              padding: 12,
-              marginBottom: 12,
               fontSize: 13,
-              color: "#E65100",
+              fontWeight: 700,
+              color: "#333",
+              marginBottom: 10,
             }}
           >
-            ⚠️ {error}
+            🟢 Live Astrologers
           </div>
-        )}
-
-        {/* Before search: info + popular */}
-        {!loading && !result && !error && (
-          <>
-            <div
-              style={{
-                background: "linear-gradient(135deg, #FFF8F2, #FFF3E0)",
-                border: "1px solid #FFCC80",
-                borderRadius: 12,
-                padding: 14,
-                marginBottom: 14,
-              }}
-            >
-              <div
-                style={{
-                  fontWeight: 700,
-                  fontSize: 15,
-                  color: "#FF6B00",
-                  marginBottom: 4,
-                }}
-              >
-                ✨ AsthaAI — Apni problem likhein, hum sahi raasta dikhayenge
-              </div>
-              <div style={{ fontSize: 12, color: "#888", lineHeight: 1.5 }}>
-                Hindi, English ya Hinglish mein likhein. AI samajh kar best
-                astrologer aur remedies suggest karega.
-              </div>
-            </div>
-            <PopularSearches
-              onSelect={(q) => {
-                handleSearch(q);
-              }}
-            />
-          </>
-        )}
-
-        {/* Loading */}
-        {loading && <LoadingSkeleton />}
-
-        {/* Results */}
-        {result && !loading && (
-          <>
-            <IntentBanner
-              understood_as={result.understood_as}
-              category={result.category}
-            />
-
-            {/* Tab switcher */}
-            <div
-              style={{
-                display: "flex",
-                marginBottom: 0,
-              }}
-            >
-              {(["Astrologer", "Remedies"] as const).map((tab) => (
-                <button
-                  key={tab}
-                  onClick={() => setActiveTab(tab)}
-                  style={{
-                    flex: 1,
-                    padding: "10px 0",
-                    fontSize: 13,
-                    fontWeight: 700,
-                    border: "none",
-                    cursor: "pointer",
-                    borderRadius: "20px 20px 0 0",
-                    background:
-                      activeTab === tab ? "#FF6B00" : "#fff",
-                    color: activeTab === tab ? "#fff" : "#888",
-                    borderBottom:
-                      activeTab === tab
-                        ? "none"
-                        : "1px solid #ebebeb",
-                  }}
-                >
-                  {tab === "Astrologer"
-                    ? `Astrologer (${result.astrologers.length})`
-                    : `Remedies (${result.remedies.length})`}
-                </button>
-              ))}
-            </div>
-
-            {/* Cards */}
-            <div
-              style={{
-                background: "#fff",
-                borderRadius: "0 0 12px 12px",
-                padding: "12px 10px",
-                border: "1px solid #ebebeb",
-                borderTop: "none",
-              }}
-            >
-              {activeTab === "Astrologer" &&
-                result.astrologers.map((a, i) => (
-                  <AstroCard key={i} astrologer={a} isTopMatch={i === 0} />
-                ))}
-              {activeTab === "Remedies" &&
-                result.remedies.map((r, i) => (
-                  <RemedyCard key={i} remedy={r} />
-                ))}
-            </div>
-          </>
-        )}
-      </div>
-
-      {/* Fixed bottom nav */}
-      <div
-        style={{
-          position: "fixed",
-          bottom: 0,
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: "100%",
-          maxWidth: 420,
-          background: "#fff",
-          borderTop: "1px solid #ebebeb",
-          display: "flex",
-          justifyContent: "space-around",
-          padding: "8px 0 12px",
-          zIndex: 50,
-        }}
-      >
-        {[
-          { icon: "🏠", label: "Home", active: false },
-          { icon: "📡", label: "Live", active: false },
-          { icon: "🙏", label: "Remedies", active: true },
-          { icon: "💡", label: "FREE", active: false },
-          { icon: "💰", label: "Refer & Earn", active: false },
-        ].map((item) => (
-          <button
-            key={item.label}
+          <div
             style={{
               display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: 2,
-              background: "none",
-              border: "none",
-              cursor: "pointer",
-              fontSize: 18,
-              padding: 0,
+              gap: 16,
+              overflowX: "auto",
+              paddingBottom: 14,
+              scrollbarWidth: "none",
             }}
           >
-            <span>{item.icon}</span>
-            <span
+            {ASTROLOGERS.filter((a) => a.available)
+              .slice(0, 4)
+              .map((a) => (
+                <div
+                  key={a.id}
+                  onClick={() => router.push(`/astrologer/${a.id}`)}
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    gap: 4,
+                    cursor: "pointer",
+                    minWidth: 70,
+                  }}
+                >
+                  <div style={{ position: "relative" }}>
+                    <img
+                      src={a.photo}
+                      alt={a.name}
+                      style={{
+                        width: 56,
+                        height: 56,
+                        borderRadius: "50%",
+                        border: "2.5px solid #FF6B00",
+                        objectFit: "cover",
+                      }}
+                    />
+                    <div
+                      style={{
+                        position: "absolute",
+                        bottom: -2,
+                        left: "50%",
+                        transform: "translateX(-50%)",
+                        background: "#FF6B00",
+                        color: "#fff",
+                        fontSize: 8,
+                        fontWeight: 700,
+                        padding: "1px 8px",
+                        borderRadius: 8,
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      LIVE
+                    </div>
+                  </div>
+                  <div
+                    style={{
+                      fontSize: 10,
+                      color: "#555",
+                      textAlign: "center",
+                      lineHeight: 1.2,
+                      maxWidth: 70,
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    {a.name.split(" ").slice(1).join(" ")}
+                  </div>
+                </div>
+              ))}
+          </div>
+        </div>
+
+        {/* Promo banner */}
+        <div style={{ padding: "10px 14px" }}>
+          <div
+            style={{
+              background: "linear-gradient(135deg, #FF6B00, #FF8F3F)",
+              borderRadius: 12,
+              padding: "14px 16px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
+            <div>
+              <div
+                style={{
+                  color: "#fff",
+                  fontWeight: 800,
+                  fontSize: 14,
+                  lineHeight: 1.3,
+                }}
+              >
+                Recharge with ₹500 &
+              </div>
+              <div
+                style={{
+                  color: "#FFE0B2",
+                  fontWeight: 800,
+                  fontSize: 16,
+                }}
+              >
+                Get ₹300 EXTRA!
+              </div>
+            </div>
+            <button
               style={{
-                fontSize: 9,
-                fontWeight: 600,
-                color: item.active ? "#FF6B00" : "#999",
+                background: "#fff",
+                color: "#FF6B00",
+                border: "none",
+                borderRadius: 8,
+                padding: "8px 18px",
+                fontWeight: 700,
+                fontSize: 12,
+                cursor: "pointer",
               }}
             >
-              {item.label}
-            </span>
-          </button>
-        ))}
+              CLAIM
+            </button>
+          </div>
+        </div>
+
+        {/* Intent chips */}
+        <div style={{ padding: "4px 14px 10px" }}>
+          <div
+            style={{
+              fontSize: 12,
+              fontWeight: 700,
+              color: "#888",
+              marginBottom: 8,
+            }}
+          >
+            Kisliye help chahiye?
+          </div>
+          <div
+            style={{
+              display: "flex",
+              gap: 8,
+              overflowX: "auto",
+              paddingBottom: 4,
+              scrollbarWidth: "none",
+            }}
+          >
+            {INTENT_CHIPS.map((chip) => (
+              <button
+                key={chip.label}
+                onClick={() =>
+                  setActiveChip(
+                    activeChip === chip.filter ? null : chip.filter
+                  )
+                }
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 4,
+                  background:
+                    activeChip === chip.filter ? "#FF6B00" : "#fff",
+                  color:
+                    activeChip === chip.filter ? "#fff" : "#555",
+                  border: `1px solid ${activeChip === chip.filter ? "#FF6B00" : "#e0e0e0"}`,
+                  borderRadius: 20,
+                  padding: "6px 14px",
+                  fontSize: 12,
+                  fontWeight: 600,
+                  cursor: "pointer",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                <span>{chip.emoji}</span> {chip.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Astrologer list */}
+        <div style={{ padding: "0 14px" }}>
+          <div
+            style={{
+              fontSize: 15,
+              fontWeight: 700,
+              color: "#333",
+              marginBottom: 10,
+            }}
+          >
+            Hamare Astrologers
+          </div>
+          {filtered.map((a) => (
+            <AstroCard
+              key={a.id}
+              astrologer={a}
+              isTopMatch={false}
+              showWhyMatched={activeChip !== null}
+              onClick={() => router.push(`/astrologer/${a.id}`)}
+            />
+          ))}
+          {filtered.length === 0 && (
+            <div
+              style={{
+                textAlign: "center",
+                padding: 30,
+                color: "#aaa",
+                fontSize: 13,
+              }}
+            >
+              Is category mein koi astrologer nahi mila
+            </div>
+          )}
+        </div>
       </div>
+
+      <BottomNav active="Home" />
     </div>
   );
 }

@@ -1,19 +1,29 @@
 "use client";
 
+import { AstrologerData } from "@/data/mockData";
 import { Astrologer } from "@/types/search";
 
 interface AstroCardProps {
-  astrologer: Astrologer;
-  isTopMatch: boolean;
+  astrologer: Astrologer | AstrologerData;
+  isTopMatch?: boolean;
+  showWhyMatched?: boolean;
+  onClick?: () => void;
 }
 
-export default function AstroCard({ astrologer, isTopMatch }: AstroCardProps) {
+export default function AstroCard({
+  astrologer,
+  isTopMatch = false,
+  showWhyMatched = true,
+  onClick,
+}: AstroCardProps) {
+  const photo = "photo" in astrologer ? (astrologer as AstrologerData).photo : null;
   const nameParts = astrologer.name.split(" ");
   const avatarLetter =
     nameParts.length > 1 ? nameParts[1][0] : nameParts[0][0];
 
   return (
     <div
+      onClick={onClick}
       style={{
         position: "relative",
         background: "#fff",
@@ -24,6 +34,7 @@ export default function AstroCard({ astrologer, isTopMatch }: AstroCardProps) {
         boxShadow: isTopMatch
           ? "0 2px 12px rgba(255,107,0,0.12)"
           : "0 1px 3px rgba(0,0,0,0.04)",
+        cursor: onClick ? "pointer" : "default",
       }}
     >
       {isTopMatch && (
@@ -47,24 +58,39 @@ export default function AstroCard({ astrologer, isTopMatch }: AstroCardProps) {
 
       <div style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
         {/* Avatar */}
-        <div
-          style={{
-            width: 62,
-            height: 62,
-            minWidth: 62,
-            borderRadius: "50%",
-            background: "linear-gradient(135deg, #FFF3E0, #FFE0B2)",
-            border: "2px solid #FF6B00",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: 24,
-            fontWeight: 700,
-            color: "#FF6B00",
-          }}
-        >
-          {avatarLetter}
-        </div>
+        {photo ? (
+          <img
+            src={photo}
+            alt={astrologer.name}
+            style={{
+              width: 62,
+              height: 62,
+              minWidth: 62,
+              borderRadius: "50%",
+              border: "2px solid #FF6B00",
+              objectFit: "cover",
+            }}
+          />
+        ) : (
+          <div
+            style={{
+              width: 62,
+              height: 62,
+              minWidth: 62,
+              borderRadius: "50%",
+              background: "linear-gradient(135deg, #FFF3E0, #FFE0B2)",
+              border: "2px solid #FF6B00",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: 24,
+              fontWeight: 700,
+              color: "#FF6B00",
+            }}
+          >
+            {avatarLetter}
+          </div>
+        )}
 
         {/* Info */}
         <div style={{ flex: 1, minWidth: 0 }}>
@@ -82,7 +108,7 @@ export default function AstroCard({ astrologer, isTopMatch }: AstroCardProps) {
             {astrologer.skills}
           </div>
           <div style={{ fontSize: 12, color: "#888", marginBottom: 1 }}>
-            {astrologer.languages}
+            {"languages" in astrologer ? astrologer.languages : ""}
           </div>
           <div style={{ fontSize: 12, color: "#888" }}>
             {astrologer.experience}
@@ -99,15 +125,14 @@ export default function AstroCard({ astrologer, isTopMatch }: AstroCardProps) {
           }}
         >
           <button
+            onClick={(e) => e.stopPropagation()}
             style={{
               padding: "6px 14px",
               borderRadius: 6,
               fontSize: 12,
               fontWeight: 700,
               cursor: "pointer",
-              border: astrologer.available
-                ? "none"
-                : "1.5px solid #ccc",
+              border: astrologer.available ? "none" : "1.5px solid #ccc",
               background: astrologer.available ? "#FF6B00" : "transparent",
               color: astrologer.available ? "#fff" : "#888",
             }}
@@ -115,6 +140,7 @@ export default function AstroCard({ astrologer, isTopMatch }: AstroCardProps) {
             Chat
           </button>
           <button
+            onClick={(e) => e.stopPropagation()}
             style={{
               padding: "6px 14px",
               borderRadius: 6,
@@ -171,19 +197,21 @@ export default function AstroCard({ astrologer, isTopMatch }: AstroCardProps) {
       </div>
 
       {/* Why matched */}
-      <div
-        style={{
-          background: "#FFF8F2",
-          border: "1px solid #FFE4C8",
-          borderRadius: 8,
-          padding: 8,
-          marginTop: 10,
-          fontSize: 12,
-          color: "#C45A00",
-        }}
-      >
-        🎯 Aapke liye kyun: {astrologer.why_matched}
-      </div>
+      {showWhyMatched && astrologer.why_matched && (
+        <div
+          style={{
+            background: "#FFF8F2",
+            border: "1px solid #FFE4C8",
+            borderRadius: 8,
+            padding: 8,
+            marginTop: 10,
+            fontSize: 12,
+            color: "#C45A00",
+          }}
+        >
+          🎯 Aapke liye kyun: {astrologer.why_matched}
+        </div>
+      )}
 
       {/* Unavailable bar */}
       {!astrologer.available && (
@@ -202,6 +230,7 @@ export default function AstroCard({ astrologer, isTopMatch }: AstroCardProps) {
         >
           <span>⏱ Wait time ~10 min</span>
           <button
+            onClick={(e) => e.stopPropagation()}
             style={{
               background: "transparent",
               border: "1.5px solid #FF6B00",

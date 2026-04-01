@@ -1,9 +1,12 @@
 "use client";
 
 import { Remedy } from "@/types/search";
+import { ProductData } from "@/data/mockData";
 
 interface RemedyCardProps {
-  remedy: Remedy;
+  remedy?: Remedy;
+  product?: ProductData;
+  onClick?: () => void;
 }
 
 function tagColor(tag: string) {
@@ -16,11 +19,19 @@ function tagColor(tag: string) {
   return { bg: "#FF6B00", color: "#fff" };
 }
 
-export default function RemedyCard({ remedy }: RemedyCardProps) {
-  const tc = tagColor(remedy.tag);
+export default function RemedyCard({ remedy, product, onClick }: RemedyCardProps) {
+  const name = product?.name || remedy?.name || "";
+  const tag = product?.tag || remedy?.tag || "";
+  const whyMatched = product?.problem || remedy?.why_matched || "";
+  const priceOriginal = product?.price_original || remedy?.price_original || "";
+  const priceOffer = product?.price_offer || remedy?.price_offer || "";
+  const discount = product?.discount || remedy?.discount || "";
+  const photo = product?.photo;
+  const tc = tagColor(tag);
 
   return (
     <div
+      onClick={onClick}
       style={{
         background: "#fff",
         border: "1px solid #ebebeb",
@@ -30,25 +41,41 @@ export default function RemedyCard({ remedy }: RemedyCardProps) {
         display: "flex",
         gap: 12,
         alignItems: "flex-start",
+        cursor: onClick ? "pointer" : "default",
       }}
     >
-      {/* Product icon */}
-      <div
-        style={{
-          width: 76,
-          height: 76,
-          minWidth: 76,
-          borderRadius: 10,
-          background: "linear-gradient(135deg, #FFF3E0, #FFE0B2)",
-          border: "2px solid #FF6B00",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          fontSize: 28,
-        }}
-      >
-        🔮
-      </div>
+      {/* Product image */}
+      {photo ? (
+        <img
+          src={photo}
+          alt={name}
+          style={{
+            width: 76,
+            height: 76,
+            minWidth: 76,
+            borderRadius: 10,
+            border: "2px solid #FF6B00",
+            objectFit: "cover",
+          }}
+        />
+      ) : (
+        <div
+          style={{
+            width: 76,
+            height: 76,
+            minWidth: 76,
+            borderRadius: 10,
+            background: "linear-gradient(135deg, #FFF3E0, #FFE0B2)",
+            border: "2px solid #FF6B00",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: 28,
+          }}
+        >
+          🔮
+        </div>
+      )}
 
       {/* Info */}
       <div style={{ flex: 1, minWidth: 0 }}>
@@ -68,7 +95,7 @@ export default function RemedyCard({ remedy }: RemedyCardProps) {
               lineHeight: 1.3,
             }}
           >
-            {remedy.name}
+            {name}
           </div>
           <span
             style={{
@@ -81,7 +108,7 @@ export default function RemedyCard({ remedy }: RemedyCardProps) {
               whiteSpace: "nowrap",
             }}
           >
-            {remedy.tag}
+            {tag}
           </span>
         </div>
 
@@ -93,7 +120,7 @@ export default function RemedyCard({ remedy }: RemedyCardProps) {
             lineHeight: 1.4,
           }}
         >
-          ✓ {remedy.why_matched}
+          ✓ {whyMatched}
         </div>
 
         {/* Price row */}
@@ -112,15 +139,18 @@ export default function RemedyCard({ remedy }: RemedyCardProps) {
               fontSize: 12,
             }}
           >
-            {remedy.price_original}
+            {priceOriginal}
           </span>
           <span style={{ fontWeight: 700, fontSize: 14, color: "#222" }}>
-            {remedy.price_offer}
+            {priceOffer}
           </span>
           <span style={{ color: "#d32f2f", fontWeight: 700, fontSize: 12 }}>
-            {remedy.discount}
+            {discount}
           </span>
           <button
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
             style={{
               marginLeft: "auto",
               background: "#FF6B00",
