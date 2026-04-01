@@ -16,7 +16,8 @@ export default function AstroCard({
   showWhyMatched = true,
   onClick,
 }: AstroCardProps) {
-  const photo = "photo" in astrologer ? (astrologer as AstrologerData).photo : null;
+  const photo =
+    "photo" in astrologer ? (astrologer as AstrologerData).photo : null;
   const nameParts = astrologer.name.split(" ");
   const avatarLetter =
     nameParts.length > 1 ? nameParts[1][0] : nameParts[0][0];
@@ -92,108 +93,130 @@ export default function AstroCard({
           </div>
         )}
 
-        {/* Info */}
+        {/* Info + Buttons */}
         <div style={{ flex: 1, minWidth: 0 }}>
           <div
             style={{
-              fontWeight: 700,
-              fontSize: 15,
-              color: "#FF6B00",
-              marginBottom: 2,
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "flex-start",
             }}
           >
-            {astrologer.name}
+            <div>
+              <div
+                style={{
+                  fontWeight: 700,
+                  fontSize: 15,
+                  color: "#FF6B00",
+                  marginBottom: 2,
+                }}
+              >
+                {astrologer.name}
+              </div>
+              <div style={{ fontSize: 12, color: "#888", marginBottom: 1 }}>
+                {astrologer.skills}
+              </div>
+              <div style={{ fontSize: 12, color: "#888", marginBottom: 1 }}>
+                {"languages" in astrologer ? astrologer.languages : ""}
+              </div>
+              <div style={{ fontSize: 12, color: "#888" }}>
+                {astrologer.experience}
+              </div>
+            </div>
           </div>
-          <div style={{ fontSize: 12, color: "#888", marginBottom: 1 }}>
-            {astrologer.skills}
+
+          {/* Rating & Price row */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 8,
+              marginTop: 8,
+              flexWrap: "wrap",
+            }}
+          >
+            <span
+              style={{
+                background: "#FF6B00",
+                color: "#fff",
+                fontSize: 11,
+                fontWeight: 700,
+                padding: "2px 8px 2px 6px",
+                borderRadius: "10px 4px 4px 10px",
+                display: "flex",
+                alignItems: "center",
+                gap: 2,
+              }}
+            >
+              {astrologer.rating} ★
+            </span>
+            <span style={{ fontWeight: 700, fontSize: 13, color: "#222" }}>
+              {astrologer.price_offer}
+            </span>
+            <span
+              style={{
+                textDecoration: "line-through",
+                color: "#aaa",
+                fontSize: 12,
+              }}
+            >
+              {astrologer.price_original}
+            </span>
+            <span style={{ color: "#aaa", fontSize: 11 }}>
+              {astrologer.minutes_consulted}
+            </span>
           </div>
-          <div style={{ fontSize: 12, color: "#888", marginBottom: 1 }}>
-            {"languages" in astrologer ? astrologer.languages : ""}
-          </div>
-          <div style={{ fontSize: 12, color: "#888" }}>
-            {astrologer.experience}
+
+          {/* Chat & Call buttons - side by side */}
+          <div
+            style={{
+              display: "flex",
+              gap: 8,
+              marginTop: 10,
+            }}
+          >
+            <button
+              onClick={(e) => e.stopPropagation()}
+              style={{
+                flex: 1,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 4,
+                padding: "7px 0",
+                borderRadius: 8,
+                fontSize: 12,
+                fontWeight: 700,
+                cursor: "pointer",
+                border: astrologer.available ? "none" : "1.5px solid #ccc",
+                background: astrologer.available ? "#FF6B00" : "transparent",
+                color: astrologer.available ? "#fff" : "#888",
+              }}
+            >
+              💬 Chat
+            </button>
+            <button
+              onClick={(e) => e.stopPropagation()}
+              style={{
+                flex: 1,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 4,
+                padding: "7px 0",
+                borderRadius: 8,
+                fontSize: 12,
+                fontWeight: 700,
+                cursor: "pointer",
+                border: "1.5px solid #ccc",
+                background: "transparent",
+                color: "#888",
+              }}
+            >
+              📞 Call
+            </button>
           </div>
         </div>
-
-        {/* Buttons */}
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: 6,
-            minWidth: 64,
-          }}
-        >
-          <button
-            onClick={(e) => e.stopPropagation()}
-            style={{
-              padding: "6px 14px",
-              borderRadius: 6,
-              fontSize: 12,
-              fontWeight: 700,
-              cursor: "pointer",
-              border: astrologer.available ? "none" : "1.5px solid #ccc",
-              background: astrologer.available ? "#FF6B00" : "transparent",
-              color: astrologer.available ? "#fff" : "#888",
-            }}
-          >
-            Chat
-          </button>
-          <button
-            onClick={(e) => e.stopPropagation()}
-            style={{
-              padding: "6px 14px",
-              borderRadius: 6,
-              fontSize: 12,
-              fontWeight: 700,
-              cursor: "pointer",
-              border: "1.5px solid #ccc",
-              background: "transparent",
-              color: "#888",
-            }}
-          >
-            Call
-          </button>
-        </div>
-      </div>
-
-      {/* Rating & Price row */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: 10,
-          marginTop: 10,
-          flexWrap: "wrap",
-        }}
-      >
-        <span
-          style={{
-            background: "#FFF3E0",
-            color: "#FF6B00",
-            fontSize: 11,
-            fontWeight: 700,
-            padding: "2px 8px",
-            borderRadius: 10,
-          }}
-        >
-          ⭐ {astrologer.rating}
-        </span>
-        <span style={{ fontWeight: 700, fontSize: 13, color: "#222" }}>
-          {astrologer.price_offer}
-        </span>
-        <span
-          style={{
-            textDecoration: "line-through",
-            color: "#aaa",
-            fontSize: 12,
-          }}
-        >
-          {astrologer.price_original}
-        </span>
-        <span style={{ color: "#aaa", fontSize: 11 }}>
-          {astrologer.minutes_consulted}
-        </span>
       </div>
 
       {/* Why matched */}
