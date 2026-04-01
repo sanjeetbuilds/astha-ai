@@ -30,7 +30,7 @@ export default function AstrologerProfile() {
         {/* Profile card */}
         <div style={{ background: "#fff", padding: "20px 16px 16px", borderBottom: "1px solid #ebebeb" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-            <img src={astrologer.photo} alt={astrologer.name} style={{ width: 80, height: 80, borderRadius: "50%", border: "3px solid #FF6B00", objectFit: "cover" }} />
+            <img src={astrologer.photo} alt={astrologer.name} onError={(e) => { e.currentTarget.src = "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=150&h=150&fit=crop&crop=face"; }} style={{ width: 80, height: 80, borderRadius: "50%", border: "3px solid #FF6B00", objectFit: "cover" }} />
             <div style={{ flex: 1 }}>
               <div style={{ fontWeight: 700, fontSize: 18, color: "#222", marginBottom: 4 }}>{astrologer.name}</div>
               <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
@@ -67,8 +67,8 @@ export default function AstrologerProfile() {
               <div style={{ width: 0, height: 0, borderTop: "12px solid transparent", borderBottom: "12px solid transparent", borderLeft: "20px solid #FF6B00", marginLeft: 4 }} />
             </div>
           </div>
-          <div style={{ fontSize: 12, color: "#888", marginTop: 6 }}>🎬 Pehle ek baar suniye, phir decide karein</div>
-          <div style={{ fontSize: 12, color: "#FF6B00", fontWeight: 600, marginTop: 2 }}>Paise lagane se pehle — ek minute lo</div>
+          <div style={{ fontSize: 12, color: "#888", marginTop: 6 }}>🎬 Intro video • 45 sec</div>
+          <div style={{ fontSize: 12, color: "#FF6B00", fontWeight: 600, marginTop: 2 }}>Consult se pehle — inhe jaaniye</div>
         </div>
 
         {/* Why choose */}
@@ -119,7 +119,7 @@ export default function AstrologerProfile() {
           <div style={{ display: "flex", gap: 16, overflowX: "auto", scrollbarWidth: "none" }}>
             {similar.map((a) => (
               <div key={a.id} onClick={() => router.push(`/astrologer/${a.id}`)} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, cursor: "pointer", minWidth: 80 }}>
-                <img src={a.photo} alt={a.name} style={{ width: 56, height: 56, borderRadius: "50%", border: "2px solid #FF6B00", objectFit: "cover" }} />
+                <img src={a.photo} alt={a.name} onError={(e) => { e.currentTarget.src = "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=150&h=150&fit=crop&crop=face"; }} style={{ width: 56, height: 56, borderRadius: "50%", border: "2px solid #FF6B00", objectFit: "cover" }} />
                 <div style={{ fontSize: 11, color: "#333", textAlign: "center", fontWeight: 600, maxWidth: 80, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{a.name.split(" ").slice(1).join(" ")}</div>
                 <span style={{ fontSize: 10, color: "#FF6B00", fontWeight: 600 }}>⭐ {a.rating}</span>
               </div>

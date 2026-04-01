@@ -83,7 +83,7 @@ export default function CategoryProducts() {
             const tc = tagColor(product.tag);
             return (
               <div key={product.id} onClick={() => router.push(`/remedies/product/${product.id}`)} style={{ background: "#fff", border: "1px solid #ebebeb", borderRadius: 12, padding: 12, marginBottom: 10, display: "flex", gap: 12, alignItems: "flex-start", cursor: "pointer" }}>
-                <img src={product.photo} alt={product.name} style={{ width: 90, height: 90, minWidth: 90, borderRadius: 10, objectFit: "cover", border: "1px solid #f0f0f0" }} />
+                <img src={product.photo} alt={product.name} onError={(e) => { e.currentTarget.src = "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=300&q=80"; }} style={{ width: 90, height: 90, minWidth: 90, borderRadius: 10, objectFit: "cover", border: "1px solid #f0f0f0" }} />
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 6 }}>
                     <div style={{ fontWeight: 700, fontSize: 14, color: "#222", lineHeight: 1.3 }}>{product.name}</div>
@@ -108,7 +108,7 @@ export default function CategoryProducts() {
                 const tc = tagColor(product.tag);
                 return (
                   <div key={product.id} onClick={() => router.push(`/remedies/product/${product.id}`)} style={{ background: "#fff", border: "1px solid #ebebeb", borderRadius: 12, padding: 12, marginBottom: 10, display: "flex", gap: 12, alignItems: "flex-start", cursor: "pointer" }}>
-                    <img src={product.photo} alt={product.name} style={{ width: 90, height: 90, minWidth: 90, borderRadius: 10, objectFit: "cover", border: "1px solid #f0f0f0" }} />
+                    <img src={product.photo} alt={product.name} onError={(e) => { e.currentTarget.src = "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=300&q=80"; }} style={{ width: 90, height: 90, minWidth: 90, borderRadius: 10, objectFit: "cover", border: "1px solid #f0f0f0" }} />
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 6 }}>
                         <div style={{ fontWeight: 700, fontSize: 14, color: "#222", lineHeight: 1.3 }}>{product.name}</div>

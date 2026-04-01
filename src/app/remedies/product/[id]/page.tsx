@@ -15,7 +15,6 @@ export default function ProductDetail() {
 
   const recommender = ASTROLOGERS.find((a) => a.speciality === product.category) || ASTROLOGERS[0];
   const isFemale = ["Devi", "Priya", "Sana", "Meera", "Kavita", "Divya"].some((n) => recommender.name.includes(n));
-  const priceNum = product.price_offer.replace(/[^0-9]/g, "");
 
   return (
     <div style={{ width: "100%", maxWidth: 420, margin: "0 auto", minHeight: "100vh", background: "#F5F5F5", overflowX: "hidden", fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
@@ -29,7 +28,7 @@ export default function ProductDetail() {
       </div>
 
       <div style={{ padding: "0 0 80px" }}>
-        <img src={product.photo} alt={product.name} style={{ width: "100%", height: 300, objectFit: "cover" }} />
+        <img src={product.photo} alt={product.name} onError={(e) => { e.currentTarget.src = "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=300&q=80"; }} style={{ width: "100%", height: 300, objectFit: "cover" }} />
 
         {/* Name & price */}
         <div style={{ background: "#fff", padding: 16, borderBottom: "1px solid #ebebeb" }}>
@@ -124,7 +123,7 @@ export default function ProductDetail() {
         <div style={{ background: "#fff", padding: "14px 16px", borderBottom: "1px solid #ebebeb", marginTop: 1 }}>
           <div style={{ fontWeight: 700, fontSize: 14, color: "#333", marginBottom: 12 }}>👨‍🔬 Astrologer ji kehte hain:</div>
           <div style={{ display: "flex", alignItems: "center", gap: 12, background: "#FFF8F2", border: "1px solid #FFE4C8", borderRadius: 12, padding: 12 }}>
-            <img src={recommender.photo} alt={recommender.name} style={{ width: 48, height: 48, borderRadius: "50%", border: "2px solid #FF6B00", objectFit: "cover" }} />
+            <img src={recommender.photo} alt={recommender.name} onError={(e) => { e.currentTarget.src = "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=150&h=150&fit=crop&crop=face"; }} style={{ width: 48, height: 48, borderRadius: "50%", border: "2px solid #FF6B00", objectFit: "cover" }} />
             <div style={{ flex: 1 }}>
               <div style={{ fontWeight: 700, fontSize: 13, color: "#333", marginBottom: 2 }}>{recommender.name}</div>
               <div style={{ fontSize: 11, color: "#888", lineHeight: 1.4 }}>&ldquo;Yeh product {product.category.toLowerCase()} ke liye recommend kart{isFemale ? "i" : "a"} hoon&rdquo;</div>
@@ -150,7 +149,7 @@ export default function ProductDetail() {
           <div style={{ fontSize: 11, opacity: 0.8 }}>Price</div>
           <div style={{ fontWeight: 800, fontSize: 18 }}>{product.price_offer}</div>
         </div>
-        <button style={{ flex: 1, background: "#E65100", color: "#fff", border: "none", fontWeight: 700, fontSize: 15, cursor: "pointer", padding: "14px 0" }}>Abhi Lo — ₹{priceNum}</button>
+        <button style={{ flex: 1, background: "#E65100", color: "#fff", border: "none", fontWeight: 700, fontSize: 15, cursor: "pointer", padding: "14px 0" }}>CONTINUE →</button>
       </div>
     </div>
   );

@@ -66,7 +66,7 @@ export default function Home() {
             {ASTROLOGERS.filter((a) => a.available).slice(0, 5).map((a) => (
               <div key={a.id} onClick={() => router.push(`/astrologer/${a.id}`)} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4, cursor: "pointer", minWidth: 70 }}>
                 <div style={{ position: "relative" }}>
-                  <img src={a.photo} alt={a.name} style={{ width: 56, height: 56, borderRadius: "50%", border: "2.5px solid #FF6B00", objectFit: "cover" }} />
+                  <img src={a.photo} alt={a.name} onError={(e) => { e.currentTarget.src = "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=150&h=150&fit=crop&crop=face"; }} style={{ width: 56, height: 56, borderRadius: "50%", border: "2.5px solid #FF6B00", objectFit: "cover" }} />
                   <div style={{ position: "absolute", bottom: -2, left: "50%", transform: "translateX(-50%)", background: "#FF6B00", color: "#fff", fontSize: 8, fontWeight: 700, padding: "1px 8px", borderRadius: 8, whiteSpace: "nowrap" }}>LIVE</div>
                 </div>
                 <div style={{ fontSize: 10, color: "#555", textAlign: "center", lineHeight: 1.2, maxWidth: 70, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{a.name.split(" ").slice(1).join(" ")}</div>

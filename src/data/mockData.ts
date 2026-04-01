@@ -267,7 +267,7 @@ export const PRODUCTS: ProductData[] = [
     price_offer: "₹849/-",
     discount: "35% Off",
     tag: "Bestseller",
-    photo: "https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?w=300",
+    photo: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=300&q=80",
     problems_detailed: ["Breakup ke baad dil nahi lag raha", "Ex ke yaad bahut aate hain", "Naya pyaar attract karna chahte hain"],
     timeline: [
       { week: "Week 1", benefit: "Emotional stress kam hona shuru hoga" },
@@ -290,7 +290,7 @@ export const PRODUCTS: ProductData[] = [
     price_offer: "₹999/-",
     discount: "33% Off",
     tag: "New",
-    photo: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=300",
+    photo: "https://images.unsplash.com/photo-1573408301185-9519f94815f7?w=300&q=80",
     problems_detailed: ["Ex ki memories se pareshan hain", "Rishte mein trust issues hain", "Emotional healing chahiye"],
     timeline: [
       { week: "Week 1", benefit: "Negative thoughts kam hone lagenge" },
@@ -313,7 +313,7 @@ export const PRODUCTS: ProductData[] = [
     price_offer: "₹799/-",
     discount: "33% Off",
     tag: "Bestseller",
-    photo: "https://images.unsplash.com/photo-1573408301185-9519f94815f7?w=300",
+    photo: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=300&q=80",
     problems_detailed: ["Job interviews mein baar baar reject ho rahe hain", "Promotion ke liye kaafi time se wait kar rahe hain", "Career mein koi direction nahi dikh raha"],
     timeline: [
       { week: "Week 1", benefit: "Confidence aur clarity badhne lagegi" },
@@ -336,7 +336,7 @@ export const PRODUCTS: ProductData[] = [
     price_offer: "₹1649/-",
     discount: "34% Off",
     tag: "EMI Available",
-    photo: "https://images.unsplash.com/photo-1567225557594-88887a55d400?w=300",
+    photo: "https://images.unsplash.com/photo-1567225557594-88887a55d400?w=300&q=80",
     problems_detailed: ["Business mein continuously loss ho raha hai", "Paise bachte nahi hain, kharche zyada hain", "Financial growth ruk gayi hai"],
     timeline: [
       { week: "Week 1", benefit: "Financial awareness aur planning improve hogi" },
@@ -359,7 +359,7 @@ export const PRODUCTS: ProductData[] = [
     price_offer: "₹3149/-",
     discount: "34% Off",
     tag: "EMI Available",
-    photo: "https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?w=300",
+    photo: "https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?w=300&q=80",
     problems_detailed: ["Raat ko neend nahi aati, overthinking hoti hai", "Anxiety attacks aate hain", "Mental stress se health kharab ho rahi hai"],
     timeline: [
       { week: "Week 1", benefit: "Raat ko thodi better neend aane lagegi" },
@@ -382,7 +382,7 @@ export const PRODUCTS: ProductData[] = [
     price_offer: "₹1249/-",
     discount: "34% Off",
     tag: "Bestseller",
-    photo: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=300",
+    photo: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=300&q=80",
     problems_detailed: ["Nazar bahut jaldi lag jaati hai", "Ghar mein negative energy feel hoti hai", "Raat ko darr lagta hai, bure sapne aate hain"],
     timeline: [
       { week: "Week 1", benefit: "Negative vibes se protection feel hoga" },
@@ -405,7 +405,7 @@ export const PRODUCTS: ProductData[] = [
     price_offer: "₹649/-",
     discount: "35% Off",
     tag: "New",
-    photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300",
+    photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&q=80",
     problems_detailed: ["Interview mein baar baar fail ho rahe hain", "Job lag ke bhi chhoot jaati hai", "Mangal dosh career rok raha hai"],
     timeline: [
       { week: "Week 1-2", benefit: "Yantra energize hoga, subtle changes shuru" },
@@ -428,7 +428,7 @@ export const PRODUCTS: ProductData[] = [
     price_offer: "₹1449/-",
     discount: "34% Off",
     tag: "Bestseller",
-    photo: "https://images.unsplash.com/photo-1604881988758-f76ad2f7aac1?w=300",
+    photo: "https://images.unsplash.com/photo-1604881988758-f76ad2f7aac1?w=300&q=80",
     problems_detailed: ["Ghar mein roz ladaai hoti hai", "Saas-bahu ya family members mein tension hai", "Ghar ka mahaul bahut negative hai"],
     timeline: [
       { week: "Week 1", benefit: "Puja se ghar ki energy cleanse hogi" },
@@ -451,7 +451,7 @@ export const PRODUCTS: ProductData[] = [
     price_offer: "₹999/-",
     discount: "37% Off",
     tag: "Bestseller",
-    photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300",
+    photo: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&q=80",
     problems_detailed: ["Shani ki dasha mein career ruk gaya hai", "Promotion aur increment mein bahut delay", "Office mein respect nahi milti"],
     timeline: [
       { week: "Week 1-2", benefit: "Shani graha ki negative energy kam hone lagegi" },
@@ -474,7 +474,7 @@ export const PRODUCTS: ProductData[] = [
     price_offer: "₹749/-",
     discount: "42% Off",
     tag: "New",
-    photo: "https://images.unsplash.com/photo-1573408301185-9519f94815f7?w=300",
+    photo: "https://images.unsplash.com/photo-1573408301185-9519f94815f7?w=300&q=80",
     problems_detailed: ["Interviews mein baar baar reject ho rahe hain", "Job applications ka koi jawab nahi aata", "Career mein confidence ki kami feel hoti hai"],
     timeline: [
       { week: "Week 1", benefit: "Self-confidence aur positive thinking badhegi" },
@@ -497,7 +497,7 @@ export const PRODUCTS: ProductData[] = [
     price_offer: "₹599/-",
     discount: "33% Off",
     tag: "Bestseller",
-    photo: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=300",
+    photo: "https://images.unsplash.com/photo-1601121141461-9d6647bef0a0?w=300&q=80",
     problems_detailed: ["Kisi ki nazar lagi hui hai", "Logon ki jealousy se affected hain", "Achhe kaam shuru karte hi rukawat aati hai"],
     timeline: [
       { week: "Week 1", benefit: "Nazar aur buri energy ka asar kam hone lagega" },
@@ -520,7 +520,7 @@ export const PRODUCTS: ProductData[] = [
     price_offer: "₹1199/-",
     discount: "33% Off",
     tag: "Bestseller",
-    photo: "https://images.unsplash.com/photo-1567225557594-88887a55d400?w=300",
+    photo: "https://images.unsplash.com/photo-1567225557594-88887a55d400?w=300&q=80",
     problems_detailed: ["Business mein ghata ho raha hai", "Loan aur debt badhta jaa raha hai", "Income kam aur expenses zyada hain"],
     timeline: [
       { week: "Week 1", benefit: "Ganesh ji ki kripa se obstacles hatne lagenge" },

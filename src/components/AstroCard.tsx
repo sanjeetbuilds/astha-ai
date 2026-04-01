@@ -42,7 +42,7 @@ export default function AstroCard({
 
       <div style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
         {photo ? (
-          <img src={photo} alt={astrologer.name} style={{ width: 62, height: 62, minWidth: 62, borderRadius: "50%", border: "2px solid #FF6B00", objectFit: "cover" }} />
+          <img src={photo} alt={astrologer.name} onError={(e) => { e.currentTarget.src = "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=150&h=150&fit=crop&crop=face"; }} style={{ width: 62, height: 62, minWidth: 62, borderRadius: "50%", border: "2px solid #FF6B00", objectFit: "cover" }} />
         ) : (
           <div style={{ width: 62, height: 62, minWidth: 62, borderRadius: "50%", background: "linear-gradient(135deg, #FFF3E0, #FFE0B2)", border: "2px solid #FF6B00", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 24, fontWeight: 700, color: "#FF6B00" }}>{avatarLetter}</div>
         )}

@@ -42,7 +42,7 @@ export default function RemedyCard({ remedy, product, onClick }: RemedyCardProps
       }}
     >
       {photo ? (
-        <img src={photo} alt={name} style={{ width: 76, height: 76, minWidth: 76, borderRadius: 10, border: "2px solid #FF6B00", objectFit: "cover" }} />
+        <img src={photo} alt={name} onError={(e) => { e.currentTarget.src = "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=300&q=80"; }} style={{ width: 76, height: 76, minWidth: 76, borderRadius: 10, border: "2px solid #FF6B00", objectFit: "cover" }} />
       ) : (
         <div style={{ width: 76, height: 76, minWidth: 76, borderRadius: 10, background: "linear-gradient(135deg, #FFF3E0, #FFE0B2)", border: "2px solid #FF6B00", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 28 }}>🔮</div>
       )}
@@ -63,7 +63,7 @@ export default function RemedyCard({ remedy, product, onClick }: RemedyCardProps
             onClick={(e) => e.stopPropagation()}
             style={{ marginLeft: "auto", background: "#FF6B00", color: "#fff", border: "none", borderRadius: 6, padding: "5px 10px", fontSize: 11, fontWeight: 700, cursor: "pointer", whiteSpace: "nowrap" }}
           >
-            Cart mein daalo
+            Add to Cart
           </button>
         </div>
       </div>
