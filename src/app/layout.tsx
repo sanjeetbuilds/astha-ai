@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "InstaAstro - AI Smart Search",
-  description: "AI-powered astrologer and remedy search",
+  title: "AsthaAI — AI-Powered Astrology Guidance",
+  description: "Find the right astrologer and remedy for your exact problem",
 };
 
 export default function RootLayout({

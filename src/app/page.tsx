@@ -82,7 +82,7 @@ export default function Home() {
             gap: 6,
           }}
         >
-          🔮 InstaAstro
+          🔮 AsthaAI
         </div>
         <div
           style={{
@@ -157,11 +157,11 @@ export default function Home() {
                   marginBottom: 4,
                 }}
               >
-                ✨ AI Smart Search
+                ✨ AsthaAI — Apni problem likhein, hum sahi raasta dikhayenge
               </div>
               <div style={{ fontSize: 12, color: "#888", lineHeight: 1.5 }}>
-                Apni problem Hindi, English ya Hinglish mein likhein. AI samajh
-                kar best astrologer aur remedies suggest karega.
+                Hindi, English ya Hinglish mein likhein. AI samajh kar best
+                astrologer aur remedies suggest karega.
               </div>
             </div>
             <PopularSearches
