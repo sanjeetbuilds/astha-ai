@@ -47,7 +47,7 @@ export const ASTROLOGERS: AstrologerData[] = [
     minutes_consulted: "28K mins",
     available: true,
     speciality: "Love & Relationship",
-    why_matched: "Breakup aur dil ke dard mein 2000+ log ki madad ki",
+    why_matched: "Priya ji ne 2,100 log ke toote dil ko sambhala hai",
     cases: "Helped 2,100+ heartbreak cases",
     bio: "Astro Priya ko Vedic astrology aur Tarot mein 8 saal ka experience hai. Unka focus love aur relationship problems par hai — breakup, patch-up, aur shaadi mein delay jaise cases mein unhone hazaaron logon ki madad ki hai. Priya ka approach empathetic hai aur woh client ke emotional state ko samajh kar guidance deti hain.",
     reviews: [
@@ -69,7 +69,7 @@ export const ASTROLOGERS: AstrologerData[] = [
     minutes_consulted: "52K mins",
     available: false,
     speciality: "Career & Job",
-    why_matched: "Sarkari naukri aur career mein 3000+ log guide kiye",
+    why_matched: "3,200 log ki naukri aur career ki dua poori hui unse",
     cases: "3,200+ career consultations",
     bio: "Pandit Rajeev Shastri 15 saal se Vedic astrology aur Lal Kitab mein expert hain. Career guidance, job change, aur sarkari naukri ke liye unki predictions kaafi accurate hain. Unhone 3200+ logon ko career decisions mein madad ki hai aur unka success rate bahut high hai.",
     reviews: [
@@ -91,7 +91,7 @@ export const ASTROLOGERS: AstrologerData[] = [
     minutes_consulted: "19K mins",
     available: true,
     speciality: "Love & Relationship",
-    why_matched: "Tarot se future aur relationship clarity deti hain",
+    why_matched: "Sana ji ke tarot ne woh baat bata di jo koi nahi bolta",
     cases: "1,800+ love readings",
     bio: "Sana Kapoor ek gifted Tarot reader hain jinhe psychic abilities ke saath 6 saal ka experience hai. Love, relationships aur life decisions mein clarity dena unki speciality hai. Unka Tarot reading style deep aur accurate hai jo clients ko clear direction deta hai.",
     reviews: [
@@ -113,7 +113,7 @@ export const ASTROLOGERS: AstrologerData[] = [
     minutes_consulted: "41K mins",
     available: true,
     speciality: "Money & Business",
-    why_matched: "Business aur wealth mein proven track record",
+    why_matched: "Vikram ji ne 2,500 business waalon ko raah dikhayi",
     cases: "2,500+ business consultations",
     bio: "Vikram Joshi KP astrology aur Vastu mein 12 saal ka experience rakhte hain. Business decisions, investments, aur wealth growth mein unki guidance bahut effective hai. 2500+ business owners aur professionals ne unki consultation se faayda uthaya hai.",
     reviews: [
@@ -135,7 +135,7 @@ export const ASTROLOGERS: AstrologerData[] = [
     minutes_consulted: "67K mins",
     available: false,
     speciality: "Family",
-    why_matched: "Family aur vivah ke mushkil mamlon mein expert",
+    why_matched: "20 saal mein 4,100 families ne unse rasta paaya",
     cases: "4,100+ family cases",
     bio: "Pandit Suresh Tripathi 20 saal ke anubhav ke saath sabse senior astrologers mein se ek hain. Family disputes, property matters, aur vivah ke complicated cases mein unki expertise unmatched hai. Nadi astrology ke through woh bahut precise predictions dete hain.",
     reviews: [
@@ -157,7 +157,7 @@ export const ASTROLOGERS: AstrologerData[] = [
     minutes_consulted: "33K mins",
     available: true,
     speciality: "Fear & Spirituality",
-    why_matched: "Nazar, kala jadu aur negative energy door karne mein expert",
+    why_matched: "Nazar aur kala jadu — 1,600 log unse nikal ke aaye",
     cases: "1,600+ spiritual healings",
     bio: "Meera Devi Vedic astrology ke saath occult sciences mein bhi expert hain. Negative energy removal, nazar utarna, aur spiritual protection mein unka 10 saal ka experience hai. Tamil aur North Indian dono traditions ko jodkar woh unique solutions deti hain.",
     reviews: [
@@ -179,7 +179,7 @@ export const ASTROLOGERS: AstrologerData[] = [
     minutes_consulted: "22K mins",
     available: true,
     speciality: "Career & Job",
-    why_matched: "Kundli se career timing aur opportunities predict karte hain",
+    why_matched: "Kundli se career timing — 1,900 log aage badhe",
     cases: "1,900+ career readings",
     bio: "Jyotish Acharya Deepak Vedic astrology mein 10 saal ka experience rakhte hain. Career mapping aur kundli analysis unki speciality hai. Job interviews, promotions aur career transitions mein unki guidance ne 1900+ logon ki madad ki hai.",
     reviews: [
@@ -201,7 +201,7 @@ export const ASTROLOGERS: AstrologerData[] = [
     minutes_consulted: "11K mins",
     available: true,
     speciality: "Love & Relationship",
-    why_matched: "Tarot se rishton ki clarity aur future bataati hain",
+    why_matched: "Kavita ji ka tarot seedha dil ki baat kehta hai",
     cases: "1,200+ love readings",
     bio: "Kavita Singh Tarot aur psychic reading mein 5 saal ka experience rakhti hain. Love life mein confusion, relationship decisions aur marriage timing unki speciality hai. Unki empathetic approach clients ko safe feel karaati hai.",
     reviews: [
@@ -223,7 +223,7 @@ export const ASTROLOGERS: AstrologerData[] = [
     minutes_consulted: "58K mins",
     available: false,
     speciality: "Money & Business",
-    why_matched: "Lal Kitab se financial problems ka seedha upay bataate hain",
+    why_matched: "Lal Kitab se 3,800 logon ka paisa phir chala",
     cases: "3,800+ wealth consultations",
     bio: "Pandit Amit Sharma Lal Kitab aur Vastu mein 18 saal ke expert hain. Financial problems, business growth, aur wealth creation mein unki Lal Kitab ke totke bahut effective hain. 3800+ logon ne unke upay se financial improvement dekhi hai.",
     reviews: [
@@ -245,7 +245,7 @@ export const ASTROLOGERS: AstrologerData[] = [
     minutes_consulted: "25K mins",
     available: true,
     speciality: "Health",
-    why_matched: "Health aur wellbeing ke liye Nadi astrology specialist hain",
+    why_matched: "Divya ji ne 2,100 logon ki sehat ki kundli padhi",
     cases: "2,100+ health consultations",
     bio: "Divya Rao Vedic aur Nadi astrology mein 9 saal ka experience rakhti hain. Health issues, mental wellness, aur chronic problems ke astrological solutions unki speciality hai. 2100+ logon ko health guidance di hai.",
     reviews: [
@@ -536,19 +536,19 @@ export const PRODUCTS: ProductData[] = [
 ];
 
 export const INTENT_CHIPS = [
-  { emoji: "💔", label: "Breakup", filter: "Love & Relationship" },
-  { emoji: "💼", label: "Naukri", filter: "Career & Job" },
-  { emoji: "💰", label: "Paisa", filter: "Money & Business" },
-  { emoji: "👨‍👩‍👧", label: "Family", filter: "Family" },
-  { emoji: "👻", label: "Nazar", filter: "Fear & Spirituality" },
-  { emoji: "💍", label: "Shaadi", filter: "Love & Relationship" },
+  { emoji: "💔", label: "Dil ka dard", filter: "Love & Relationship" },
+  { emoji: "💼", label: "Naukri ki tension", filter: "Career & Job" },
+  { emoji: "💰", label: "Paisa atak gaya", filter: "Money & Business" },
+  { emoji: "👨‍👩‍👧", label: "Ghar ki baat", filter: "Family" },
+  { emoji: "👻", label: "Dar laga hua hai", filter: "Fear & Spirituality" },
+  { emoji: "💍", label: "Shaadi ki chinta", filter: "Love & Relationship" },
 ];
 
 export const REMEDY_CATEGORIES = [
-  { slug: "love", label: "Love & Relationship", image: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=400", chips: ["Sab", "Breakup", "Shaadi", "Ex Wapas", "Naya Pyaar"] },
-  { slug: "career", label: "Career & Job", image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400", chips: ["Sab", "Naukri", "Promotion", "Interview", "Business"] },
-  { slug: "protection", label: "Fear & Spirituality", image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400", chips: ["Sab", "Nazar", "Negative Energy", "Darr", "Protection"] },
-  { slug: "health", label: "Health", image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400", chips: ["Sab", "Anxiety", "Neend", "Stress", "Mental Health"] },
-  { slug: "family", label: "Family", image: "https://images.unsplash.com/photo-1604881988758-f76ad2f7aac1?w=400", chips: ["Sab", "Kalesh", "Saas-Bahu", "Property", "Shaadi"] },
-  { slug: "wealth", label: "Money & Business", image: "https://images.unsplash.com/photo-1567225557594-88887a55d400?w=400", chips: ["Sab", "Loss", "Debt", "Investment", "Growth"] },
+  { slug: "love", label: "Love & Relationship", displayLabel: "Pyaar aur Rishte 💔", image: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=400", chips: ["Sab", "Breakup", "Shaadi", "Ex Wapas", "Naya Pyaar"] },
+  { slug: "career", label: "Career & Job", displayLabel: "Naukri aur Career 💼", image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400", chips: ["Sab", "Naukri", "Promotion", "Interview", "Business"] },
+  { slug: "protection", label: "Fear & Spirituality", displayLabel: "Nazar aur Dar 👁️", image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400", chips: ["Sab", "Nazar", "Negative Energy", "Darr", "Protection"] },
+  { slug: "health", label: "Health", displayLabel: "Sehat aur Mann 🌿", image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400", chips: ["Sab", "Anxiety", "Neend", "Stress", "Mental Health"] },
+  { slug: "family", label: "Family", displayLabel: "Ghar aur Parivaar 🏠", image: "https://images.unsplash.com/photo-1604881988758-f76ad2f7aac1?w=400", chips: ["Sab", "Kalesh", "Saas-Bahu", "Property", "Shaadi"] },
+  { slug: "wealth", label: "Money & Business", displayLabel: "Paisa aur Karobar 💰", image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=400", chips: ["Sab", "Loss", "Debt", "Investment", "Growth"] },
 ];

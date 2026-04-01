@@ -1,12 +1,12 @@
 "use client";
 
 const QUERIES = [
-  "Breakup ho gaya",
-  "Sarkari naukri chahiye",
-  "Shaadi mein delay",
-  "Paise ki problem",
-  "Bhoot pret ka darr",
-  "Ex ko wapas laana",
+  "Dil toot gaya 💔",
+  "Naukri nahi mil rahi 😔",
+  "Shaadi mein rukawat",
+  "Paisa haath nahi aata",
+  "Ghar mein sukoon nahi",
+  "Ex ke baare mein jaanna hai",
 ];
 
 interface PopularSearchesProps {
@@ -18,14 +18,14 @@ export default function PopularSearches({ onSelect }: PopularSearchesProps) {
     <div style={{ marginTop: 16 }}>
       <div
         style={{
-          fontSize: 11,
+          fontSize: 12,
           fontWeight: 700,
-          color: "#999",
+          color: "#888",
           marginBottom: 10,
           letterSpacing: 0.3,
         }}
       >
-        LOG AISE SEARCH KARTE HAIN 🔥
+        Aaj kya dhoondh rahe hain log:
       </div>
       <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
         {QUERIES.map((q) => (

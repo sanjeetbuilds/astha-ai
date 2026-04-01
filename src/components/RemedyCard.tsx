@@ -10,12 +10,9 @@ interface RemedyCardProps {
 }
 
 function tagColor(tag: string) {
-  if (tag.toLowerCase().includes("bestseller"))
-    return { bg: "#FF6B00", color: "#fff" };
-  if (tag.toLowerCase().includes("new"))
-    return { bg: "#2E7D32", color: "#fff" };
-  if (tag.toLowerCase().includes("emi"))
-    return { bg: "#1565C0", color: "#fff" };
+  if (tag.toLowerCase().includes("bestseller")) return { bg: "#FF6B00", color: "#fff" };
+  if (tag.toLowerCase().includes("new")) return { bg: "#2E7D32", color: "#fff" };
+  if (tag.toLowerCase().includes("emi")) return { bg: "#1565C0", color: "#fff" };
   return { bg: "#FF6B00", color: "#fff" };
 }
 
@@ -44,126 +41,29 @@ export default function RemedyCard({ remedy, product, onClick }: RemedyCardProps
         cursor: onClick ? "pointer" : "default",
       }}
     >
-      {/* Product image */}
       {photo ? (
-        <img
-          src={photo}
-          alt={name}
-          style={{
-            width: 76,
-            height: 76,
-            minWidth: 76,
-            borderRadius: 10,
-            border: "2px solid #FF6B00",
-            objectFit: "cover",
-          }}
-        />
+        <img src={photo} alt={name} style={{ width: 76, height: 76, minWidth: 76, borderRadius: 10, border: "2px solid #FF6B00", objectFit: "cover" }} />
       ) : (
-        <div
-          style={{
-            width: 76,
-            height: 76,
-            minWidth: 76,
-            borderRadius: 10,
-            background: "linear-gradient(135deg, #FFF3E0, #FFE0B2)",
-            border: "2px solid #FF6B00",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: 28,
-          }}
-        >
-          🔮
-        </div>
+        <div style={{ width: 76, height: 76, minWidth: 76, borderRadius: 10, background: "linear-gradient(135deg, #FFF3E0, #FFE0B2)", border: "2px solid #FF6B00", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 28 }}>🔮</div>
       )}
 
-      {/* Info */}
       <div style={{ flex: 1, minWidth: 0 }}>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "flex-start",
-            gap: 8,
-          }}
-        >
-          <div
-            style={{
-              fontWeight: 700,
-              fontSize: 14,
-              color: "#222",
-              lineHeight: 1.3,
-            }}
-          >
-            {name}
-          </div>
-          <span
-            style={{
-              background: tc.bg,
-              color: tc.color,
-              fontSize: 9,
-              fontWeight: 700,
-              padding: "2px 8px",
-              borderRadius: 10,
-              whiteSpace: "nowrap",
-            }}
-          >
-            {tag}
-          </span>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 8 }}>
+          <div style={{ fontWeight: 700, fontSize: 14, color: "#222", lineHeight: 1.3 }}>{name}</div>
+          <span style={{ background: tc.bg, color: tc.color, fontSize: 9, fontWeight: 700, padding: "2px 8px", borderRadius: 10, whiteSpace: "nowrap" }}>{tag}</span>
         </div>
 
-        <div
-          style={{
-            fontSize: 12,
-            color: "#E65100",
-            marginTop: 6,
-            lineHeight: 1.4,
-          }}
-        >
-          ✓ {whyMatched}
-        </div>
+        <div style={{ fontSize: 12, color: "#E65100", marginTop: 6, lineHeight: 1.4 }}>✓ {whyMatched}</div>
 
-        {/* Price row */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 8,
-            marginTop: 8,
-          }}
-        >
-          <span
-            style={{
-              textDecoration: "line-through",
-              color: "#aaa",
-              fontSize: 12,
-            }}
-          >
-            {priceOriginal}
-          </span>
-          <span style={{ fontWeight: 700, fontSize: 14, color: "#222" }}>
-            {priceOffer}
-          </span>
-          <span style={{ color: "#d32f2f", fontWeight: 700, fontSize: 12 }}>
-            {discount}
-          </span>
+        <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 8 }}>
+          <span style={{ textDecoration: "line-through", color: "#aaa", fontSize: 12 }}>{priceOriginal}</span>
+          <span style={{ fontWeight: 700, fontSize: 14, color: "#222" }}>{priceOffer}</span>
+          <span style={{ color: "#d32f2f", fontWeight: 700, fontSize: 12 }}>{discount}</span>
           <button
-            onClick={(e) => {
-              e.stopPropagation();
-            }}
-            style={{
-              marginLeft: "auto",
-              background: "#FF6B00",
-              color: "#fff",
-              border: "none",
-              borderRadius: 6,
-              padding: "5px 16px",
-              fontSize: 12,
-              fontWeight: 700,
-              cursor: "pointer",
-            }}
+            onClick={(e) => e.stopPropagation()}
+            style={{ marginLeft: "auto", background: "#FF6B00", color: "#fff", border: "none", borderRadius: 6, padding: "5px 10px", fontSize: 11, fontWeight: 700, cursor: "pointer", whiteSpace: "nowrap" }}
           >
-            Add
+            Cart mein daalo
           </button>
         </div>
       </div>

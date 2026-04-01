@@ -14,25 +14,14 @@ export default function AstrologerProfile() {
   }
 
   const similar = ASTROLOGERS.filter((a) => a.id !== id).slice(0, 3);
-  const firstName = astrologer.name.split(" ").slice(1).join(" ") || astrologer.name;
 
   return (
-    <div
-      style={{
-        width: "100%",
-        maxWidth: 420,
-        margin: "0 auto",
-        minHeight: "100vh",
-        background: "#F5F5F5",
-        overflowX: "hidden",
-        fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-      }}
-    >
-      {/* Header */}
+    <div style={{ width: "100%", maxWidth: 420, margin: "0 auto", minHeight: "100vh", background: "#F5F5F5", overflowX: "hidden", fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
+      {/* Header - shows astrologer name */}
       <div style={{ position: "sticky", top: 0, zIndex: 50, background: "#fff", borderBottom: "1px solid #ebebeb", padding: "12px 16px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
           <button onClick={() => router.back()} style={{ background: "none", border: "none", fontSize: 20, cursor: "pointer", padding: 0, color: "#333" }}>←</button>
-          <span style={{ fontWeight: 700, fontSize: 16, color: "#333" }}>Astrologer Profile</span>
+          <span style={{ fontWeight: 700, fontSize: 16, color: "#333" }}>{astrologer.name}</span>
         </div>
         <button style={{ background: "#E8F5E9", border: "none", borderRadius: 8, padding: "6px 12px", fontSize: 12, fontWeight: 600, color: "#2E7D32", cursor: "pointer" }}>📤 Share</button>
       </div>
@@ -54,7 +43,7 @@ export default function AstrologerProfile() {
           </div>
         </div>
 
-        {/* Stats row */}
+        {/* Stats */}
         <div style={{ display: "flex", gap: 10, padding: "12px 14px" }}>
           <div style={{ flex: 1, background: "#fff", border: "1px solid #ebebeb", borderRadius: 10, padding: 12, textAlign: "center" }}>
             <div style={{ fontSize: 11, color: "#888", marginBottom: 4 }}>Consultation fees</div>
@@ -69,36 +58,23 @@ export default function AstrologerProfile() {
 
         {/* Video intro */}
         <div style={{ padding: "0 14px 12px" }}>
-          <div
-            style={{
-              position: "relative",
-              background: "#1a1a1a",
-              borderRadius: 12,
-              overflow: "hidden",
-              aspectRatio: "16/9",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            {/* Overlay name */}
+          <div style={{ position: "relative", background: "#1a1a1a", borderRadius: 12, overflow: "hidden", aspectRatio: "16/9", display: "flex", alignItems: "center", justifyContent: "center" }}>
             <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, background: "linear-gradient(transparent, rgba(0,0,0,0.8))", padding: "30px 14px 12px" }}>
               <div style={{ color: "#fff", fontWeight: 700, fontSize: 14 }}>{astrologer.name}</div>
               <div style={{ color: "#aaa", fontSize: 11 }}>{astrologer.speciality}</div>
             </div>
-            {/* Play button */}
             <div style={{ width: 56, height: 56, borderRadius: "50%", background: "rgba(255,255,255,0.95)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", zIndex: 2 }}>
               <div style={{ width: 0, height: 0, borderTop: "12px solid transparent", borderBottom: "12px solid transparent", borderLeft: "20px solid #FF6B00", marginLeft: 4 }} />
             </div>
           </div>
-          <div style={{ fontSize: 12, color: "#888", marginTop: 6 }}>🎬 Intro video • 45 sec</div>
-          <div style={{ fontSize: 12, color: "#FF6B00", fontWeight: 600, marginTop: 2 }}>Consult karne se pehle {firstName} ji ko samjhein</div>
+          <div style={{ fontSize: 12, color: "#888", marginTop: 6 }}>🎬 Pehle ek baar suniye, phir decide karein</div>
+          <div style={{ fontSize: 12, color: "#FF6B00", fontWeight: 600, marginTop: 2 }}>Paise lagane se pehle — ek minute lo</div>
         </div>
 
         {/* Why choose */}
         <div style={{ padding: "0 14px 12px" }}>
           <div style={{ background: "linear-gradient(135deg, #FFF8F2, #FFF3E0)", border: "1.5px solid #FFCC80", borderRadius: 12, padding: 14 }}>
-            <div style={{ fontWeight: 700, fontSize: 14, color: "#FF6B00", marginBottom: 6 }}>🎯 Is astrologer ko kyun chunein?</div>
+            <div style={{ fontWeight: 700, fontSize: 14, color: "#FF6B00", marginBottom: 6 }}>🎯 Yeh aapke liye kyun sahi hain?</div>
             <div style={{ fontSize: 13, color: "#C45A00", lineHeight: 1.5, marginBottom: 4 }}>{astrologer.why_matched}</div>
             <div style={{ fontSize: 12, color: "#E65100", fontWeight: 600 }}>📊 {astrologer.cases}</div>
           </div>
@@ -114,23 +90,21 @@ export default function AstrologerProfile() {
           </div>
         </div>
 
-        {/* About Me */}
+        {/* About */}
         <div style={{ background: "#fff", padding: "14px 16px", borderBottom: "1px solid #ebebeb", marginTop: 1 }}>
-          <div style={{ fontWeight: 700, fontSize: 14, color: "#333", marginBottom: 8 }}>About Me</div>
+          <div style={{ fontWeight: 700, fontSize: 14, color: "#333", marginBottom: 8 }}>Inke baare mein</div>
           <div style={{ fontSize: 13, color: "#666", lineHeight: 1.6 }}>{astrologer.bio}</div>
-          <button style={{ background: "none", border: "none", color: "#FF6B00", fontSize: 12, fontWeight: 700, cursor: "pointer", padding: 0, marginTop: 6 }}>read more →</button>
+          <button style={{ background: "none", border: "none", color: "#FF6B00", fontSize: 12, fontWeight: 700, cursor: "pointer", padding: 0, marginTop: 6 }}>poora padhein →</button>
         </div>
 
         {/* Reviews */}
         <div style={{ background: "#fff", padding: "14px 16px", borderBottom: "1px solid #ebebeb", marginTop: 1 }}>
-          <div style={{ fontWeight: 700, fontSize: 14, color: "#333", marginBottom: 12 }}>🗣️ Unke saath kya solve hua</div>
+          <div style={{ fontWeight: 700, fontSize: 14, color: "#333", marginBottom: 12 }}>🗣️ Inke paas aaye, kuch lekar gaye</div>
           {astrologer.reviews.map((review, i) => (
             <div key={i} style={{ background: "#FAFAFA", border: "1px solid #f0f0f0", borderRadius: 10, padding: 12, marginBottom: 10 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
                 <div style={{ width: 34, height: 34, borderRadius: "50%", background: "#FFE0B2", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 700, fontSize: 14, color: "#FF6B00" }}>{review.name[0]}</div>
-                <div style={{ flex: 1 }}>
-                  <div style={{ fontWeight: 600, fontSize: 13, color: "#333" }}>{review.name}</div>
-                </div>
+                <div style={{ flex: 1 }}><div style={{ fontWeight: 600, fontSize: 13, color: "#333" }}>{review.name}</div></div>
                 <span style={{ background: "#FFF3E0", color: "#FF6B00", fontSize: 10, fontWeight: 700, padding: "2px 8px", borderRadius: 10 }}>{review.problem}</span>
               </div>
               <div style={{ fontSize: 12, color: "#555", lineHeight: 1.5, marginBottom: 6 }}>&ldquo;{review.text}&rdquo;</div>
@@ -139,9 +113,9 @@ export default function AstrologerProfile() {
           ))}
         </div>
 
-        {/* Similar Astrologers */}
+        {/* Similar */}
         <div style={{ background: "#fff", padding: "14px 16px", borderBottom: "1px solid #ebebeb", marginTop: 1 }}>
-          <div style={{ fontWeight: 700, fontSize: 14, color: "#333", marginBottom: 12 }}>Similar Astrologers</div>
+          <div style={{ fontWeight: 700, fontSize: 14, color: "#333", marginBottom: 12 }}>Inka wait hai? Yeh bhi mil sakte hain</div>
           <div style={{ display: "flex", gap: 16, overflowX: "auto", scrollbarWidth: "none" }}>
             {similar.map((a) => (
               <div key={a.id} onClick={() => router.push(`/astrologer/${a.id}`)} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, cursor: "pointer", minWidth: 80 }}>

@@ -15,7 +15,6 @@ export default function SearchBar({
 }: SearchBarProps) {
   return (
     <div style={{ position: "relative" }}>
-      {/* Search icon */}
       <span
         style={{
           position: "absolute",
@@ -37,7 +36,7 @@ export default function SearchBar({
         onKeyDown={(e) => {
           if (e.key === "Enter") onSubmit();
         }}
-        placeholder="Apni problem likhein... heartbreak, naukri, tension"
+        placeholder="Kya chal raha hai zindagi mein? Likho..."
         style={{
           width: "100%",
           background: "#F5F5F5",
@@ -51,7 +50,6 @@ export default function SearchBar({
         }}
       />
 
-      {/* Clear button */}
       {value.length > 0 && (
         <button
           onClick={onClear}
